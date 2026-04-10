@@ -1,0 +1,15 @@
+flowchart TD
+    U[User Request] --> A[AcademicPlanningAgent]
+    A --> B[Intent and Risk Classifier]
+    B -->|Planning or concept help| C[Tool Selector]
+    B -->|Integrity risk| D[Safe Refusal and Redirection]
+    C --> E[Policy Lookup Tool]
+    C --> F[Resource Search Tool\nLocal pandas table]
+    C --> G[Schedule Builder Tool]
+    E --> H[Response Composer]
+    F --> H
+    G --> H
+    H --> I[Transparency Log + Memory Update]
+    I --> J[User Response]
+    I --> K[Short-Term Memory Buffer]
+    K --> A
